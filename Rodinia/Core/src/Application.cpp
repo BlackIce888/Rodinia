@@ -1,4 +1,4 @@
-#include "RodiniaApplication.h"
+#include "Application.h"
 
 namespace Rodinia {
 	Application::Application() {

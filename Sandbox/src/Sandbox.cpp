@@ -1,4 +1,4 @@
-#include <RodiniaCore.h>
+#include "Base.h"
 
 class Sandbox : public Rodinia::Application {
 public:

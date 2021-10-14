@@ -10,7 +10,14 @@ project(
 	LANGUAGES CXX
 )
 
+find_package(Catch2 REQUIRED)
+
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 add_compile_definitions(RODINIA_PLATFORM_WINDOWS RODINIA_BUILD_DLL)
 
-add_subdirectory(RodiniaCore)
+enable_testing()
+
+add_subdirectory(Rodinia/Core)
+add_subdirectory(Rodinia/Renderer)
 add_subdirectory(Sandbox)
