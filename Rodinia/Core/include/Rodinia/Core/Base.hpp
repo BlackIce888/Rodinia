@@ -2,7 +2,7 @@
 
 // For use by Rodinia applications
 
-#include "../src/Application.h"
+#include "Application.hpp"
 // ---------- Entry Point ----------
-#include "../src/EntryPoint.h"
+#include "EntryPoint.hpp"
 // ---------------------------------

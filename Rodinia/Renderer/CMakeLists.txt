@@ -2,16 +2,31 @@
 
 ### Rodinia Renderer Library ###
 
+project(
+	Renderer
+	VERSION 0.0.2
+	LANGUAGES CXX
+)
+
+set(PUBLIC_HEADERS
+	"include/Rodinia/Renderer/Base.hpp"
+	"include/Rodinia/Renderer/Renderer.hpp"
+)
+
+set(PRIVATE_HEADERS
+
+)
+
 set(SRC_FILES
-	src/Renderer.cpp
+	"src/Renderer.cpp"
 )
 
 set(HEADER_FILES
-	include/Base.h
-	src/Renderer.h
+	${PUBLIC_HEADERS}
+	${PRIVATE_HEADERS}
 )
 
-add_library(Renderer SHARED
+add_library(Renderer STATIC
 	${SRC_FILES}
 	${HEADER_FILES}
 )
@@ -21,8 +36,8 @@ target_link_libraries(Renderer
 )
 
 target_include_directories(Renderer PUBLIC 
-	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-	$<INSTALL_INTERFACE:include>
+	"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+	"$<INSTALL_INTERFACE:include>"
 )
 
 add_library(Rodinia::Renderer ALIAS Renderer)
@@ -45,5 +60,5 @@ install(EXPORT RendererTargets
 )
 
 install(DIRECTORY include/
-	DESTINATION include/Renderer
+	DESTINATION include/
 )

@@ -6,7 +6,9 @@ if(NOT TARGET Rodinia::Core)
 	find_Package(Core REQUIRED)
 endif()
 
-add_executable(Sandbox src/Sandbox.cpp)
+add_executable(Sandbox 
+	"src/Sandbox.cpp"
+)
 
 set_property(DIRECTORY ${PROJECT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Sandbox)
 

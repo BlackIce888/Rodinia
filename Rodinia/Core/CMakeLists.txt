@@ -4,36 +4,46 @@ cmake_minimum_required(VERSION 3.19.6)
 
 project(
 	Core
-	VERSION 0.0.1
+	VERSION 0.0.3
 	LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 20)
+
+set(PUBLIC_HEADERS
+	"include/Rodinia/Core/Base.hpp"
+	"include/Rodinia/Core/Application.hpp"
+	"include/Rodinia/Core/EntryPoint.hpp"
+	"include/Rodinia/Core/Logger.hpp"
+)
+
+set(PRIVATE_HEADERS
+)
+
 set(SRC_FILES
-	src/Application.cpp
-	src/Logger.cpp
+	"src/Application.cpp"
+	"src/Logger.cpp"
 )
 
 set(HEADER_FILES
-	include/Base.h
-	src/Application.h
-	src/EntryPoint.h
-	src/Logger.h
+	${PUBLIC_HEADERS}
+	${PRIVATE_HEADERS}
 )
 
 set(UNIT_FILES
-	tests/main.cpp
-	tests/ApplicationUnit.cpp
+	"tests/main.cpp"
+	"tests/ApplicationUnit.cpp"
 ) 
 
 find_package(spdlog REQUIRED)
 
-add_library(Core SHARED
+add_library(Core STATIC
 	${SRC_FILES}
 	${HEADER_FILES}
 )
 
 target_link_libraries(Core
-	PRIVATE spdlog::spdlog
+	PUBLIC spdlog::spdlog
 )
 
 target_include_directories(Core PUBLIC 
@@ -78,5 +88,5 @@ install(EXPORT CoreTargets
 )
 
 install(DIRECTORY include/
-	DESTINATION include/Core
+	DESTINATION include/
 )

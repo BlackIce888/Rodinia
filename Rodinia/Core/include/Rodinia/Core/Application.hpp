@@ -11,7 +11,7 @@
 #endif
 
 namespace Rodinia {
-	class RODINIA_API Application
+	class Application
 	{
 	public:
 		Application();

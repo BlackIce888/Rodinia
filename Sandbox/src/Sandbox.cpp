@@ -1,4 +1,5 @@
-#include "Base.h"
+#include <Rodinia/Core/Base.hpp>
+#include <Rodinia/Core/Logger.hpp>
 
 class Sandbox : public Rodinia::Application {
 public:
@@ -8,5 +9,6 @@ public:
 };
 
 Rodinia::Application* Rodinia::CreateApplication() {
+	CLIENT_INFO("Creating application");
 	return new Sandbox();
 }
